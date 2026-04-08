@@ -1,0 +1,27 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // MAIN Jackson library (REQUIRED for ObjectMapper)
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.17.1'
+
+    // Optional but recommended (Java Time support)
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.17.1'
+
+    implementation 'org.mindrot:jbcrypt:0.4'
+}
+
+test {
+    useJUnitPlatform()
+}
